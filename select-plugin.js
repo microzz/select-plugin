@@ -42,6 +42,8 @@ class Select {
     this._self = this;
     let html = '';
     let DOM = {};
+    let oDiv = document.createElement('div');
+    oDiv.className = 'select-plugin';
     Object.keys(this.data).forEach( (item, index) => {
       if (index === 0) {
         html += `<select id="${this.id[index] || ('select'+index)}">
@@ -55,7 +57,8 @@ class Select {
 
     });
 
-    oParent.innerHTML = html;
+    oDiv.innerHTML = html;
+    oParent.appendChild(oDiv);
 
     // 把相关DOM元素封装在DOM对象里面
     Object.keys(this.data).forEach( (item, index) => {
@@ -117,4 +120,4 @@ class Select {
 
 }
 
-let select = new Select('.container', data, ['province', 'city', 'area'], ['省', '市', '区']);
+const select = new Select('.box1', data, ['province', 'city', 'area'], ['省', '市', '区']);
