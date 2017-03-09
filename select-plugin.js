@@ -1,20 +1,20 @@
-// 下拉框里面的数据
-let data = {
-  provinces: ['江西', '北京', '广东'],
-  cities: [
-    ['赣州市', '南昌市', '九江市'],
-    ['北京市'],
-    ['深圳市', '广州市']
-  ],
-  areas:  [
-    [['南康区', '章贡区'], ['新建县', '蛟桥镇'], ['彭泽县', '永修县']],
-    [['朝阳区', '海淀区']],
-    [['宝安区'], ['xx区']]
-  ]
-};
-
 class Select {
-  constructor(parent='body', data=[], id=[], text=[]) {
+  constructor(parent='body',
+              data={
+                provinces: ['江西', '北京', '广东'],
+                cities: [
+                  ['赣州市', '南昌市', '九江市'],
+                  ['北京市'],
+                  ['深圳市', '广州市']
+                ],
+                areas:  [
+                  [['南康区', '章贡区'], ['新建县', '蛟桥镇'], ['彭泽县', '永修县']],
+                  [['朝阳区', '海淀区']],
+                  [['宝安区'], ['xx区']]
+                ]
+              },
+              id=['province', 'city', 'area'],
+              text=['省', '市', '区']) {
     this.parent = this.findDOM(parent);
     this.data = data;
     // 设置一个一级菜单的公共下标
@@ -22,9 +22,6 @@ class Select {
     this.id = id;
     this.text = text;
     this.insertEle(this.parent);
-    // this.changeOne = this.changeOne.bind(this);
-    // 把相关DOM元素封装在DOM对象里面
-    // this.DOM = {};
     this._self = this;
   }
 
@@ -32,11 +29,6 @@ class Select {
   findDOM(str) {
     return document.querySelector(str);
   }
-
-  // createEle(name) {
-  //   return document.createElement(name);
-    // return document.createDocumentFragment();
-  // }
 
   insertEle(oParent) {
     this._self = this;
@@ -119,5 +111,3 @@ class Select {
   }
 
 }
-
-const select = new Select('.box1', data, ['province', 'city', 'area'], ['省', '市', '区']);
