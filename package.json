@@ -1,6 +1,6 @@
 {
   "name": "select-plugin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A generator for select tag in html.",
   "main": "select-plugin.js",
   "scripts": {
@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/microzz/select-plugin/issues"
   },
-  "homepage": "https://github.com/microzz/select-plugin#readme"
+  "homepage": "https://github.com/microzz/select-plugin#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "gulp-babel": "^6.1.2"
+  }
 }
