@@ -1,17 +1,26 @@
 # select-plugin
 ## 介绍
 一个三级联动的生成器插件，默认生成中国地区🇨🇳的三级联动数据，也可以自定义数据。
+
 ## 安装
-npm install select-plugin
+输入 `npm install select-plugin` .  
+
+最好先初始化一下package.json文件，输入 `npm init -y`，然后再执行安装`npm install select-plugin`
 
 ## 使用
 ### **默认数据**
- 引入js文件。 在html文件中插入`<script src="./dist/select-plugin-all.js"></script>`，然后`<script>new Select()</script>`默认就可以生成中国地区的三级联动数据啦😄
+ 引入js文件。  
+ 在html文件中插入`<script src="./dist/select-plugin-all.js"></script>`，  
+ 然后  
+ `<script>new Select()</script>`  
+ 默认就可以生成中国地区的三级联动数据啦😄
 
 ### **自定义数据**
-如果你**只使用**自定义的数据，建议只引入不包含地区数据的js文件，即`<script src="./dist/select-plugin.js"></script>`，这样文件大小可以减少很多，毕竟大中国地区数据太庞大了😇但是务必传递传递相关参数！
-`new Select('.container', data, id, text);`
-_参数依次是插入父容器位置，数据，在DOM元素的id，显示的文本_
+如果你**只使用**自定义的数据，建议只引入不包含地区数据的js文件，  
+即`<script src="./dist/select-plugin.js"></script>`，  
+这样文件大小可以减少很多，毕竟大中国地区数据太庞大了😇但是务必传递传递相关参数！<br/>  
+`new Select('.container', data, id, text);` <br/>  
+**参数依次是插入父容器位置（默认是body，参数是CSS3选择器的形式，如'#id' , ' .className'），数据，在DOM元素的id，显示的文本**
 
 ### 示例
 
@@ -58,8 +67,12 @@ _参数依次是插入父容器位置，数据，在DOM元素的id，显示的�
 ### 效果预览
 ![select-plugin](https://github.com/microzz/select-plugin/blob/1.0.0/preview.png?raw=true)
 
-#### 在线预览
-[在线预览地址1](https://microzz.github.io/select-plugin/)
+### 在线预览
+[在线预览地址1](https://microzz.github.io/select-plugin/)  
 [在线预览地址2](http://microzz.cn/select-plugin/)
+
+### About
+GitHub： https://github.com/microzz  <br/>
+个人网站：[https://microzz.com/](https://microzz.com/)
 
 

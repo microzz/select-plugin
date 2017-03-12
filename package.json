@@ -1,6 +1,6 @@
 {
   "name": "select-plugin",
-  "version": "1.0.1",
+  "version": "1.0.10",
   "description": "A generator for select tag in html.一个三级联动生成器小插件。",
   "main": "select-plugin.js",
   "scripts": {
