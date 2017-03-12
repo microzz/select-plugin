@@ -4,16 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>三级联动组件</title>
+  <title>三级联动生成器插件</title>
 </head>
 <body>
-  <div class="container">
-    <div class="box1"></div>
-    <div class="box2"></div>
-  </div>
-  <script src="./select-plugin.js"></script>
+  <div class="container"></div>
+
+  <script src="./dist/select-plugin-all.js"></script>
   <script>
+  // 不传任何参数
     new Select();
+  // 自定义数据
+    var data = {
+                One: ['a1', 'a2', 'a3'],
+                Two: [
+                  ['a11', 'a12', 'a13'],
+                  ['a21', 'a22'],
+                  ['a31', 'a32']
+                ],
+                Three:  [
+                  [['a111', 'a112'], ['a121', 'a122'], ['a131', 'a132']],
+                  [['a211', 'a212'], ['a221', 'a222']],
+                  [['a311'], ['a312']]
+                ]
+              };
+    var id = ['one', 'two', 'three'];
+    var text = ['选项1', '选项2', '选项3'];
+    // 参数依次是插入父容器位置，数据，DOM的id，显示的文本
+    new Select('.container', data, id, text);
   </script>
 </body>
 </html>

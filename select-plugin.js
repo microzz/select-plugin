@@ -1,18 +1,11 @@
+/**
+ * 快速生成三级联动插件
+ * author: microzz
+ * site: https://microzz.com/
+ */
 class Select {
   constructor(parent='body',
-              data={
-                provinces: ['江西', '北京', '广东'],
-                cities: [
-                  ['赣州市', '南昌市', '九江市'],
-                  ['北京市'],
-                  ['深圳市', '广州市']
-                ],
-                areas:  [
-                  [['南康区', '章贡区'], ['新建县', '蛟桥镇'], ['彭泽县', '永修县']],
-                  [['朝阳区', '海淀区']],
-                  [['宝安区'], ['xx区']]
-                ]
-              },
+              data=select_plugin_default_data,
               id=['province', 'city', 'area'],
               text=['省', '市', '区']) {
     this.parent = this.findDOM(parent);
@@ -38,11 +31,13 @@ class Select {
     oDiv.className = 'select-plugin';
     Object.keys(this.data).forEach( (item, index) => {
       if (index === 0) {
-        html += `<select id="${this.id[index] || ('select'+index)}">
+        html += `<span>${this.text[index] || item}</span>
+                <select id="${this.id[index] || ('select'+index)}">
                     <option>请选择</option>
-                 </select><span>${this.text[index] || item}</span>`;
+                 </select>`;
       } else {
-        html += `<select id="${this.id[index] || ('select'+index)}">
+        html += `<span>${this.text[index] || item}</span>
+                <select id="${this.id[index] || ('select'+index)}">
                     <option></option>
                  </select><span>${this.text[index] || item}</span>`;
       }
@@ -91,10 +86,19 @@ class Select {
 
       this.data[Object.keys(this.data)[2]][val] = this.data[Object.keys(this.data)[2]][val] || [[]]; // 防止选中 ‘请选择’ 时报错
 
-      this.data[Object.keys(this.data)[2]][val][0].forEach( (item, index) => {
-        let option = new Option(item, index);
-        DOM[Object.keys(DOM)[2]].options.add(option);
-      })
+      // 市辖区
+      if (this.data[Object.keys(this.data)[1]][val].length == 1 ) {
+        this.data[Object.keys(this.data)[2]][val].forEach( (item, index) => {
+          let option = new Option(item, index);
+          DOM[Object.keys(DOM)[2]].options.add(option);
+        })
+      } else {
+        this.data[Object.keys(this.data)[2]][val][0].forEach( (item, index) => {
+          let option = new Option(item, index);
+          DOM[Object.keys(DOM)[2]].options.add(option);
+        })
+      }
+
     }
 
     // 二级菜单change事件
